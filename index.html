@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Айринис, 18 лет</title>
+	<title>VEV-1.0</title>
 	<script src=" https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js "></script>
 </head>
 
@@ -14,18 +14,52 @@
   height: auto;
 }
 </style>
-<div class="d-flex align-items-center justify-content-center vh-100">
-	<video id="video">
+
+	<video id="video" controls="controls">
 	<source src="111.mp4" type="video/mp4">
 </video>
-</div>
+        <div>
         
-       
+        <button id="speed0">0</button>
+        <button id="speedpoint5">+&frac12</button>
+        
+        </div>
+        
+        <div id="log"></div>
 
 
 <script type="text/javascript">
 
+// var loop;
+// var count;
+// loop=setInterval(start,4000);
+// function start()
+// {
+//     video.currentTime=3
+//     setTimeout(function(){
+//         video.currentTime=5
+//     }, 3000);
 
+// }
+
+
+
+// 	let id = setTimeout(function log() { // запускаем наш stTimeout с интервалом 500мc
+//     //video.currentTime=(Math.random() * (3.38 - 1.1000) + 1.1000).toFixed(4) // тут выполняются действия
+//     console.log("1");
+
+//     var start = new Date().getTime();
+//   	for (var i = 0; i < 1e7; i++) {
+// 	    if ((new Date().getTime() - start) > Math.random() * (5000 - 4000) + 4000){
+// 	      break;
+// 	    }
+//   }
+//   video.currentTime=(Math.random() * (9.9999 - 9.0000) + 9.0000).toFixed(4)
+//   console.log("2");
+
+
+//     id = setTimeout(log, 1000); // замещаем id новым setTimeout который ждет когда выполнится код выше, ждет пол секунды и опять выполняет функцию log
+// }, 1000);
 
 
 	
@@ -37,12 +71,21 @@ mod1();
 	function mod1() {
 
 
-			id = setTimeout(function log() { 
+			id = setTimeout(function log() { // запускаем наш stTimeout с интервалом 500мc
+    //video.currentTime=(Math.random() * (3.38 - 1.1000) + 1.1000).toFixed(4) // тут выполняются действия
+    //console.log("1");
+
+    //var start = new Date().getTime();
+  	//for (var i = 0; i < 1e7; i++) {
+	 //   if ((new Date().getTime() - start) > Math.random() * (5000 - 4000) + 4000){
+	  //    break;
+	    //}
+  //}
   let start_time, end_time;
   let maximum = 1;
   let minimum = 1;
   let mode =  Math.floor(Math.random() * (maximum - minimum + 1)) + minimum;
- 
+  //console.log("mode "+mode);
 
   if(mode==1){
   	start_time = 9.0000;
@@ -55,11 +98,11 @@ mod1();
 
   video.currentTime=(Math.random() * (end_time  - start_time) + start_time).toFixed(4)
 
-  
+  //console.log("2");
   
 
 
-    id = setTimeout(log, 1000); 
+    id = setTimeout(log, 1000); // замещаем id новым setTimeout который ждет когда выполнится код выше, ждет пол секунды и опять выполняет функцию log
     
 }, 1000);
 
@@ -68,8 +111,9 @@ mod1();
 
 	function mod2(){
 	
-		id = setTimeout(function log() { 
-    
+		id = setTimeout(function log() { // запускаем наш stTimeout с интервалом 500мc
+    //video.currentTime=(Math.random() * (3.38 - 1.1000) + 1.1000).toFixed(4) // тут выполняются действия
+    console.log("1");
 
     var start = new Date().getTime();
   	for (var i = 0; i < 1e7; i++) {
@@ -78,11 +122,11 @@ mod1();
 	    }
   }
   video.currentTime=(Math.random() * (8.1999 - 1.1000) + 1.1000).toFixed(4)
- 
+  console.log("2");
   
 
 
-    id = setTimeout(log, 1000); 
+    id = setTimeout(log, 1000); // замещаем id новым setTimeout который ждет когда выполнится код выше, ждет пол секунды и опять выполняет функцию log
     
 }, 1000);
 	}
@@ -95,14 +139,15 @@ mod1();
 var video = document.getElementById('video');
 var log = document.getElementById('log');
 var intervalRewind;
-
+//var startSystemTime;
+//var startVideoTime;
 
 $(video).on('play',function(){
     video.playbackRate = 1.0;
     clearInterval(intervalRewind);
 });
 $(video).on('ended',function(){
-    
+    // this only happens when t=duration (not t==0)
     video.playbackRate = 1.0;
     video.currentTime = 0.0;
     clearInterval(intervalRewind);

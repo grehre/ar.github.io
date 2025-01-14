@@ -18,12 +18,7 @@
 	<video id="video" controls="controls">
 	<source src="111.mp4" type="video/mp4">
 </video>
-        <div>
         
-        <button id="speed0">0</button>
-        <button id="speedpoint5">+&frac12</button>
-        
-        </div>
         
         <div id="log"></div>
 
@@ -52,10 +47,7 @@ mod1();
   	start_time = 9.0000;
   	end_time = 12.8999;
   }
-  else if(mode==2){
-  	start_time = 1.1000;
-  	end_time = 10.1999;
-  }
+  
 
   video.currentTime=(Math.random() * (end_time  - start_time) + start_time).toFixed(4)
 
